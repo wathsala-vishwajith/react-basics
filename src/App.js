@@ -2,11 +2,21 @@ import { useState } from "react";
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [isXturn, setisXturn] = useState(true);
   function handleClick(i) {
+    //check if
+    if (squares[i]) {
+      return;
+    }
     //copy the array
     const nextSquares = squares.slice();
-    nextSquares[i] = "X";
+    if (xIsNext) {
+      nextSquares[i] = "X";
+    } else {
+      nextSquares[i] = "O";
+    }
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
   return (
     <>
